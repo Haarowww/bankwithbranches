@@ -1,0 +1,8 @@
+{% extends 'banks/base.html' %}
+{% block title %}Add Banks{% endblock %}
+{% block content %}
+    <form method="post" action="http://localhost:8000/banks/add/">
+    {% csrf_token %}{{ form.as_p }}
+    <button>Add</button>
+    </form>
+{% endblock %}

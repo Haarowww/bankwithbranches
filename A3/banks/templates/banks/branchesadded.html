@@ -1,0 +1,8 @@
+{% extends 'banks/base.html' %}
+{% block title %}Add Branches{% endblock %}
+{% block content %}
+    <form method="post" action="{% url 'branches_add' pk=pk %}">
+    {% csrf_token %}{{ form.as_p }}
+    <button>Add</button>
+    </form>
+{% endblock %}

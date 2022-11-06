@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+
+
+</head>
+<body>
+
+<style>
+	form {
+		display: grid;
+        grid-template-columns: 50% 50%;
+        grid-row-gap: 20px;
+        grid-column-gap: 10px;
+        font-family: Arial;
+	}
+
+    label {
+		text-align: right;
+        padding-top: 4px;
+	}
+
+    input {
+		border: 1px solid black;
+        height: 20px;
+        width: 200px;
+        font-size: 16px;
+	}
+
+    form div.title {
+		grid-column: 1 / 3;
+        text-align: center;
+        font-size: 20px;
+	}
+
+    form button {
+		grid-column: 1 / 3;
+		width: 80px;
+        height: 30px;
+        background: orange;
+        font-size: 16px;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+        margin: auto;
+	}
+
+</style>
+
+<form method="POST" action="http://localhost:8000/accounts/login/">
+    {% csrf_token %}
+	<div class="title" > Login </div>
+    <div class="title" ><span style="color: red">{{ error }}</span></div>
+	<label for="username"> Username </label>
+    <div>
+        <input id="username" type="text" name="username" value={{ username }}>
+    </div>
+    <label for="password"> Password </label>
+    <div>
+        <input type="password" id="password" name="password">
+    </div>
+    <button > Log in! </button>
+</form>
+
+{#<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>#}
+{#<script>#}
+{#	function check(){#}
+{#		const password = $("#password").val(); // getter#}
+{#		const password2 = $("#password2").val(); //getter#}
+{#        #}
+{#        if (password !== password2){#}
+{#			$("#error").html("Passwords do not match");#}
+{#            $("#success").html("");#}
+{#		}#}
+{#        else#}
+{#        	$("#error").html(""); #}
+{#        #}
+{#		return false;#}
+{#	    #}
+{#	}#}
+{#    #}
+{#    $("#password").keyup(check);#}
+{#    $("#password2").keyup(check);#}
+{##}
+{#	$("form").submit(function(){#}
+{#        return true;#}
+{#		if ($("#error").html())#}
+{#        	return false;#}
+{#		#}
+{#//        $.ajax({#}
+{#//        	method: 'POST',#}
+{#//            url: 'http://localhost:8000/signup/',#}
+{#//            data: {#}
+{#//				username: $("#username").val(),#}
+{#//                password: $("#password").val(),#}
+{#//			},#}
+{#//            success: function(data){#}
+{#//				$("#success").html(data);#}
+{#//			}#}
+{#//        });#}
+{##}
+{#        return true;#}
+{#	});#}
+{##}
+{#</script>#}
+
+</body>
+</html>
